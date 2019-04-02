@@ -41,7 +41,7 @@ hist(sums_d, xlab = "Total number of steps per day", xlim = c(1, 25000), ylim = 
     30), breaks = 10, col = "grey", main = "Histogram: Original Data")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](unnamed-chunk-3.png) 
 
 
 2. Calculate and report the mean and median total number of steps taken per day
@@ -75,7 +75,7 @@ ts.plot(ts(ints), xlab = "Intervals", ylab = "# of Steps", main = "Average Daily
     type = "l")
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](unnamed-chunk-6.png) 
 
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -140,7 +140,7 @@ hist(sums_e, xlab = "Total number of steps per day", xlim = c(1, 25000), ylim = 
     30), breaks = 10, col = "grey", main = "Histogram: Adjusted Data")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](unnamed-chunk-10.png) 
 
 
 The mean and median total number of steps taken per day for this new dataset are 9354.2295 and 1.0395 &times; 10<sup>4</sup>, respectively. As expected, the mean is 1411.9592 lower, and the median is also 370 lower. This reflects the skewing effect the additional 0's have on the overall dataset.
@@ -187,7 +187,7 @@ xyplot(steps ~ interval | wd, lat, main = "Activity patterns: weekdays vs. weeke
     xlab = "Interval", ylab = "Number of steps", layout = c(1, 2), type = "l")
 ```
 
-![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-12](unnamed-chunk-12.png) 
 
 
 Clearly, there are noticeable differences in the weekly patterns. E.g. on weekdays there is only 1 spike in the morning that stands out, while there are a number of similarly tall spikes throughout the middle of the day on weekends. However, while the weekend spikes occur more consistently (all between ca. 100-150 steps), they are still shorter than the mid-morning weekday spike (ca. 200 steps).
