@@ -1,0 +1,405 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\providecommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\begin{document}
+
+\section{Reproducible Research: Peer Assessment
+1}\label{reproducible-research-peer-assessment-1}
+
+In the following report we will present analysis of the activity
+monitoring data made available for this assignment (dataset available
+\href{https://d396qusza40orc.cloudfront.net/repdata\%2Fdata\%2Factivity.zip}{here}).
+
+\subsection{Loading and preprocessing the
+data}\label{loading-and-preprocessing-the-data}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the data (i.e.~read.csv())
+\end{enumerate}
+
+The csv is stored as \emph{activity.csv} in the working directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"activity.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+\end{enumerate}
+
+\subsection{What is mean total number of steps taken per
+day?}\label{what-is-mean-total-number-of-steps-taken-per-day}
+
+For this part of the assignment, we ignore the missing values in the
+dataset.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Make a histogram of the total number of steps taken each day
+\end{enumerate}
+
+We first find the daily sums to generate the histogram:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sums_d <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(d$steps, d$date, sum)}
+\end{Highlighting}
+\end{Shaded}
+
+Following is the visualization:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(sums_d, }\DataTypeTok{xlab=}\StringTok{"Total number of steps per day"}\NormalTok{,}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{25000}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{breaks=}\DecValTok{10}\NormalTok{, }\DataTypeTok{col=}\StringTok{"grey"}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{"Histogram: Original Data"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Calculate and report the mean and median total number of steps taken
+  per day
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mean_d <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(sums_d, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\NormalTok{median_d <-}\StringTok{ }\KeywordTok{median}\NormalTok{(sums_d, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+Therefore, the mean and median total number of steps taken per day are
+1.0766189\times 10\^{}\{4\} and 10765, respectively.
+
+\subsection{What is the average daily activity
+pattern?}\label{what-is-the-average-daily-activity-pattern}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Make a time series plot with the 5-minute interval (x-axis) and the
+  average number of steps taken, averaged across all days (y-axis)
+\end{enumerate}
+
+We derive the interval averages:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ints <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(d$steps, d$interval, function(x) \{}\KeywordTok{mean}\NormalTok{(x, }\DataTypeTok{na.rm=}\NormalTok{T)\})}
+\end{Highlighting}
+\end{Shaded}
+
+The we use R's built-in ts function to generate the time series graph:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ts.plot}\NormalTok{(}\KeywordTok{ts}\NormalTok{(ints), }\DataTypeTok{xlab=}\StringTok{"Intervals"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"# of Steps"}\NormalTok{, }\DataTypeTok{main=}\StringTok{"Average Daily Activity Pattern"}\NormalTok{, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Which 5-minute interval, on average across all the days in the
+  dataset, contains the maximum number of steps?
+\end{enumerate}
+
+We simply find the max value of the \emph{ints} array.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{which.max}\NormalTok{(ints)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 835 
+## 104
+\end{verbatim}
+
+Therefore, 104 is the maximum number of steps, occurring at the 5-minute
+starting at the 835th minute.
+
+\subsection{Imputing missing values}\label{imputing-missing-values}
+
+There are a number of days/intervals in the original dataset where there
+are missing values (coded as NA). The presence of missing days may
+introduce bias into some calculations or summaries of the data.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Calculate and report the total number of missing values in the dataset
+  (i.e.~the total number of rows with NAs)
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sum}\NormalTok{(}\KeywordTok{is.na}\NormalTok{(d$steps))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2304
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Devise a strategy for filling in all of the missing values in the
+  dataset. The strategy does not need to be sophisticated. For example,
+  you could use the mean/median for that day, or the mean for that
+  5-minute interval, etc.
+\end{enumerate}
+
+We are just going to substitute the missing values with zeros.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Create a new dataset that is equal to the original dataset but with
+  the missing data filled in.
+\end{enumerate}
+
+We create a new dataset \emph{e}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{e <-}\StringTok{ }\NormalTok{d}
+\NormalTok{e$steps[}\KeywordTok{is.na}\NormalTok{(e$steps)] <-}\StringTok{ }\DecValTok{0}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Make a histogram of the total number of steps taken each day and
+  Calculate and report the mean and median total number of steps taken
+  per day. Do these values differ from the estimates from the first part
+  of the assignment? What is the impact of imputing missing data on the
+  estimates of the total daily number of steps?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#get statistics by date for new date}
+\NormalTok{sums_e <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(e$steps, e$date, sum)}
+\NormalTok{mean_e <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(sums_e, }\DataTypeTok{na.rm=}\NormalTok{T)}
+\NormalTok{median_e <-}\StringTok{ }\KeywordTok{median}\NormalTok{(sums_e, }\DataTypeTok{na.rm=}\NormalTok{T)}
+
+\CommentTok{#plot histogram new data}
+\KeywordTok{hist}\NormalTok{(sums_e, }\DataTypeTok{xlab=}\StringTok{"Total number of steps per day"}\NormalTok{, }
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{25000}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{breaks=}\DecValTok{10}\NormalTok{, }\DataTypeTok{col=}\StringTok{"grey"}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{"Histogram: Adjusted Data"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+The mean and median total number of steps taken per day for this new
+dataset are 9354.2295082 and 1.0395\times 10\^{}\{4\}, respectively. As
+expected, the mean is 1411.959171 lower, and the median is also 370
+lower. This reflects the skewing effect the additional 0's have on the
+overall dataset.
+
+\subsection{Are there differences in activity patterns between weekdays
+and
+weekends?}\label{are-there-differences-in-activity-patterns-between-weekdays-and-weekends}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{Sys.setlocale}\NormalTok{(}\StringTok{"LC_TIME"}\NormalTok{, }\StringTok{"English"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] ""
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{wd <-}\StringTok{ }\NormalTok{e$date}
+\NormalTok{e <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(e, wd)}
+\NormalTok{e$wd <-}\StringTok{ }\KeywordTok{weekdays}\NormalTok{(}\KeywordTok{as.Date}\NormalTok{(wd))}
+\NormalTok{e[(e$wd ==}\StringTok{ "Sunday"}\NormalTok{) |}\StringTok{ }\NormalTok{(e$wd ==}\StringTok{ "Saturday"}\NormalTok{), }\DecValTok{4}\NormalTok{] <-}\StringTok{ "weekend"}
+\NormalTok{e[(e$wd !=}\StringTok{ "weekend"}\NormalTok{), }\DecValTok{4}\NormalTok{] <-}\StringTok{ "weekday"}
+
+\NormalTok{w1 <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(e[(e$wd ==}\StringTok{ "weekday"}\NormalTok{),}\DecValTok{1}\NormalTok{], e[(e$wd ==}\StringTok{ "weekday"}\NormalTok{),}\DecValTok{3}\NormalTok{], mean)}
+\NormalTok{w2 <-}\StringTok{ }\KeywordTok{tapply}\NormalTok{(e[(e$wd ==}\StringTok{ "weekend"}\NormalTok{),}\DecValTok{1}\NormalTok{], e[(e$wd ==}\StringTok{ "weekend"}\NormalTok{),}\DecValTok{3}\NormalTok{], mean)}
+
+\NormalTok{w1_df <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(w1))}
+\NormalTok{w1_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(w1_df, e[}\DecValTok{1}\NormalTok{:}\DecValTok{288}\NormalTok{, }\DecValTok{3}\NormalTok{])}
+\NormalTok{w1_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(w1_df, }\KeywordTok{rep}\NormalTok{(}\StringTok{"weekday"}\NormalTok{, }\DataTypeTok{each=}\DecValTok{288}\NormalTok{))}
+\KeywordTok{colnames}\NormalTok{(w1_df) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{, }\StringTok{"interval"}\NormalTok{, }\StringTok{"wd"}\NormalTok{)}
+
+\NormalTok{w2_df <-}\StringTok{ }\KeywordTok{as.data.frame}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(w2))}
+\NormalTok{w2_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(w2_df, e[}\DecValTok{1}\NormalTok{:}\DecValTok{288}\NormalTok{, }\DecValTok{3}\NormalTok{])}
+\NormalTok{w2_df <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(w2_df, }\KeywordTok{rep}\NormalTok{(}\StringTok{"weekend"}\NormalTok{, }\DataTypeTok{each=}\DecValTok{288}\NormalTok{))}
+\KeywordTok{colnames}\NormalTok{(w2_df) <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"steps"}\NormalTok{, }\StringTok{"interval"}\NormalTok{, }\StringTok{"wd"}\NormalTok{)}
+
+\NormalTok{lat <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(w1_df, w2_df)}
+
+\KeywordTok{library}\NormalTok{(lattice)}
+\KeywordTok{xyplot}\NormalTok{(steps~interval|wd, lat,}
+       \DataTypeTok{main=}\StringTok{"Activity patterns: weekdays vs. weekends"}\NormalTok{,}
+       \DataTypeTok{xlab=}\StringTok{"Interval"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Number of steps"}\NormalTok{,}
+       \DataTypeTok{layout=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{PA1_template_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+Clearly, there are noticeable differences in the weekly patterns. E.g.
+on weekdays there is only 1 spike in the morning that stands out, while
+there are a number of similarly tall spikes throughout the middle of the
+day on weekends. However, while the weekend spikes occur more
+consistently, they are still shorter than the mid-morning weekday spike.
+
+\end{document}
